@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>极简样式</title>
+  <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 20%：样式列表 -->
+    <aside id="pane-list" class="pane">
+      <header class="pane-header">
+        <h1>样式</h1>
+        <button id="btn-toggle" class="btn" title="停用当前样式">禁用</button>
+        <button id="btn-theme" class="btn btn-icon" title="切换夜间模式">🌙</button>
+        <button id="btn-add" class="btn" title="新建样式">＋ 新建</button>
+      </header>
+      <div id="style-list"></div>
+    </aside>
+
+    <!-- 20%：名称 + 生效范围 -->
+    <section id="pane-meta" class="pane">
+      <header class="pane-header"><h1>域名配置</h1></header>
+      <div id="meta-body"></div>
+    </section>
+
+    <!-- 60%：CSS 编辑器 -->
+    <section id="pane-css" class="pane">
+      <header class="pane-header">
+        <h1>CSS</h1>
+        <span id="css-info"></span>
+      </header>
+      <div id="editor-wrap">
+        <pre id="gutter" aria-hidden="true"></pre>
+        <div id="code-wrap">
+          <pre id="highlight" aria-hidden="true"></pre>
+          <textarea id="css-editor" spellcheck="false" wrap="off"
+                    placeholder="/* 在这里输入 CSS */"></textarea>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="manager.js"></script>
+</body>
+</html>
