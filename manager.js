@@ -192,12 +192,7 @@ function renderMeta() {
     if (inputs.length) inputs[inputs.length - 1].focus();
   });
 
-  const delBtn = document.createElement('button');
-  delBtn.className = 'btn btn-danger';
-  delBtn.textContent = '删除此样式';
-  delBtn.addEventListener('click', () => removeStyle(s.id));
-
-  metaEl.append(lbName, nameInput, lbRules, rulesBox, addRuleBtn, delBtn);
+  metaEl.append(lbName, nameInput, lbRules, rulesBox, addRuleBtn);
 
   cssEditor.value = s.css || '';
   updateGutter();
@@ -250,11 +245,17 @@ function ruleRow(s, index) {
 
   function validate() {
     let ok = true;
-    if (r.type === 'regex' && (r.value || '').trim()) {
-      try { new RegExp(r.value.trim()); } catch (e) { ok = false; }
+    let msg = '';
+    const val = (r.value || '').trim();
+    if (r.type === 'regex' && val) {
+      try { new RegExp(val); } catch (e) { ok = false; msg = '正则表达式语法有误'; }
+    }
+    if (ok && r.type !== 'all' && !val) {
+      ok = false;
+      msg = '请填写匹配值，否则这条规则永远不会命中';
     }
     input.classList.toggle('invalid', !ok);
-    input.title = ok ? '' : '正则表达式语法有误';
+    input.title = msg;
   }
   validate();
 

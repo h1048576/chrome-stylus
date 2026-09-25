@@ -10,7 +10,6 @@
   --input-bg: #ffffff;
   --invalid-bg: #fff6f6;
   --del-hover-bg: #fdeaea;
-  --danger-border: #f2c6c5;
   --gutter-text: #a8afb8;
   --tk-comment: #8a949e;
   --tk-selector: #0a7d5a;
@@ -35,7 +34,6 @@ body.dark {
   --input-bg: #22272d;
   --invalid-bg: #3a2a2a;
   --del-hover-bg: #3d2a2c;
-  --danger-border: #5a3535;
   --gutter-text: #6b7480;
   --tk-comment: #768390;
   --tk-selector: #7ec9a6;
@@ -58,10 +56,10 @@ body {
   background: var(--bg);
 }
 
-/* 整体三栏：20% 样式列表 | 20% 域名配置 | 60% CSS 编辑器 */
+/* 整体三栏：15% 样式列表 | 15% 域名配置 | 70% CSS 编辑器 */
 #app {
   display: grid;
-  grid-template-columns: 20% 20% 60%;
+  grid-template-columns: 15% 15% 70%;
   height: 100vh;
   min-width: 960px;
 }
@@ -73,12 +71,13 @@ body {
 .pane-header {
   flex: none;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
   border-bottom: 1px solid var(--border);
 }
-.pane-header h1 { margin: 0; margin-right: auto; font-size: 13px; font-weight: 600; }
+.pane-header h1 { margin: 0; margin-right: auto; font-size: 13px; font-weight: 600; white-space: nowrap; }
 
 #css-info { margin-left: auto; font-size: 12px; color: var(--muted); }
 
@@ -164,7 +163,7 @@ body {
   accent-color: var(--accent);
   cursor: pointer;
 }
-#meta-body .rule-row select { width: 74px; flex: 0 0 74px; }
+#meta-body .rule-row select { width: 64px; flex: 0 0 64px; }
 #meta-body .rule-row input { flex: 1; min-width: 0; }
 .rule-row.off select,
 .rule-row.off input:not([type="checkbox"]) { opacity: .55; }
@@ -178,19 +177,14 @@ body {
   color: var(--text);
   font: inherit;
   cursor: pointer;
+  white-space: nowrap;
 }
-.pane-header .btn { padding: 4px 10px; }
+.pane-header .btn { padding: 4px 8px; }
 .btn-icon { padding: 4px 8px; font-size: 14px; line-height: 1.2; }
 .btn:disabled { opacity: .45; cursor: default; }
 .btn:disabled:hover { border-color: var(--border); color: var(--text); }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
 .btn-ghost { border-style: dashed; color: var(--muted); }
-.btn-danger {
-  border-color: var(--danger-border);
-  color: var(--danger);
-  margin-top: auto;
-}
-.btn-danger:hover { background: var(--danger); border-color: var(--danger); color: #fff; }
 
 .hint {
   color: var(--muted);

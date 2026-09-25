@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "极简样式 SimpleStyle",
+  "name": "SimpleStyle",
   "version": "1.0.0",
   "description": "Stylus 的极简版：左边选样式，中间配生效范围，右边写 CSS。",
   "permissions": ["storage"],
