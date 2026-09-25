@@ -3,7 +3,8 @@
   "name": "SimpleStyle",
   "version": "1.0.0",
   "description": "Stylus 的极简版：左边选样式，中间配生效范围，右边写 CSS。",
-  "permissions": ["storage"],
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
